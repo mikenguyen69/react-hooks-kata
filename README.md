@@ -50,7 +50,8 @@ export default function TodoList() {
 * Add form with className="flex justify-center p-5"
 * Add input field 
 ```javascript 
-<input type="text" className="border-black border-solid border-2" and onChange={event => setTodo(event.target.value} />
+<input type="text" className="border-black border-solid border-2" 
+    onChange={event => setTodo(event.target.value} />
 ```
 * Add onSubmit function to the form
 ```javascript  
@@ -102,7 +103,8 @@ className={ ... ${todo.complete && "line-through text-gray-700"}}
 ```javascript
 case "TOOGLE_TODO": 
   const toggledTodos = state.todos.map(t => 
-      t.id === action.payload.id ? {...action.payload, complete: !action.payload.complete}: t) 
+      t.id === action.payload.id 
+      ? {...action.payload, complete: !action.payload.complete}: t) 
   return {
       ...state,
       todos: toggledTodos
