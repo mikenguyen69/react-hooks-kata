@@ -119,6 +119,23 @@ onClick = {() => dispatch({type: "SETCURRENT_TODO", payload: todo})}
 ```
 
 #### Go to components/TodoForm.js
+* deconstruct currentTodo from state
+```javascript
+const {state: {currentTodo = {}}, dispatch} = useContext(TodosContext);
+```
+
+* add handling for current item changes that set the value to the todo text box via useEffect on currentTodo.id
+```javascript
+useEffect(() => {
+    if (currentTodo.text) {
+        setTodo(currentTodo.text)
+    }
+    else {
+        setTodo("")
+    }
+}, [currentTodo.id])
+```
+
 * on handleSubmit add handling for UPDATE_TODO if there the currentTodo has any text. 
 ```javascript
 ...
